@@ -21,32 +21,12 @@ Actions:
  
  
 *Room Outline*  
-________________________________________________________
 
-|                |                   |                 |
 
-| Bones (too big |                   |  Dark corner    | 
+Bones and rat | scratchings on wall | Dark Corner 
+-------------------------------------------------
+Half eaten sandwich | start | Cell Door 
+-------------------------------------------------
+Thin Blankets (note in pillowcase) | slightly creaky floor | Really creaky floor and gravel
+-------------------------------------------------
 
-|  to be chcken) |   scratchings on  |                 |
-
-|     rat        |       wall        |                 |
-
-|                |                   |                 |
-
-|                |                   |                 |
-
-________________________________________________________
-|                |                   |                 |
-|                |                   |                 |
-|   half eaten   |       Start       |    Cell Door    |
-|    sandwich    |                   |                 |
-|                |                   |                 |
-|                |                   |                 |
-________________________________________________________
-|                |                   |                 |
-|                |                   |                 |
-|  Thin blankets |  Slightly creaky  |  Creaky Floor   |
-|    (note in    |       floor       |                 |
-|   pillowcase)  |                   |    Gravel       |
-|                |                   |                 |
-________________________________________________________
