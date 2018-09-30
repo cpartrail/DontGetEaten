@@ -24,9 +24,7 @@ Actions:
 
 
 Bones and rat | scratchings on wall | Dark Corner 
---------------|---------------------|--------------
 Half eaten sandwich | start | Cell Door 
---------------|---------------|--------------------
 Thin Blankets (note in pillowcase) | slightly creaky floor | Really creaky floor and gravel
----------------|------------------|----------------
+
 
