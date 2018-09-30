@@ -22,12 +22,19 @@ Actions:
  
 *Room Outline*  
 ________________________________________________________
+
 |                |                   |                 |
-| Bones (too big |                   |  Dark corner    |
+
+| Bones (too big |                   |  Dark corner    | 
+
 |  to be chcken) |   scratchings on  |                 |
+
 |     rat        |       wall        |                 |
+
 |                |                   |                 |
+
 |                |                   |                 |
+
 ________________________________________________________
 |                |                   |                 |
 |                |                   |                 |
