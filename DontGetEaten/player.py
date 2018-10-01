@@ -25,6 +25,8 @@ class Player:
         for items in self.inventory: print(items)
 
     def move(self, direction):
+        print("useless")
+        
 
     
     
