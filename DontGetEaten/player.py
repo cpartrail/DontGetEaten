@@ -4,6 +4,7 @@ class Player:
         self.name = 'nobody'
         self.alive = True
         self.inventory = []
+        self.location = [0,0]
 
     def killPlayer(self):
         self.alive = False
@@ -22,6 +23,8 @@ class Player:
 
     def showItems(self):
         for items in self.inventory: print(items)
+
+    def move(self, direction):
 
     
     
