@@ -7,6 +7,9 @@ class Tile:
     def getName(self):
         return self.name
 
+    def setName(self, name):
+        self.name = name
+
     def updateDescription(self, description):
         self.description = description
 
@@ -22,6 +25,8 @@ class Tile:
 
 class Room:
     def __init__(self, x, y):
+        self.width = x
+        self.length = y
         emptyTile = Tile()
         self.map = [[emptyTile] for i in range(x)]
         for i in range(x):
@@ -30,10 +35,20 @@ class Room:
 
     def addTile(self, tile, x, y):
         self.map[x][y] = tile
-        
-        
-    def gimmeMap(self):
+
+    def getMap(self):
         return self.map
+
+    def printMap(self):
+        y = self.length - 1
+        x = self.width - 1
+        for i in range(self.width):
+            for j in range(self.length):
+                print(x, y, " : ", self.map[x][y].getName())
+                y -= 1
+            print("\n")
+            y = self.length - 1
+            x -= 1
 
 
 
@@ -44,20 +59,16 @@ class Room:
 ============
 Testy Testy
 ============
-
-listy = [[]]
-
-print(listy)
-listy[0] += ['blue']
-listy[0].append('red')
-print(listy[0][0])
-print(listy[0][1])
-print('\n\n', listy[0], '\n\n')
 '''
+
 kitchen = Room(3,4)
-kitchenMap = kitchen.gimmeMap()
-print(kitchenMap[0][0].getName(), "\n\n")
-print(kitchenMap[1][1].getName(), "\n\n")
+kitchen.printMap()
+print("\n\n")
+sink = Tile()
+sink.setName("Kitchen Sink")
 
+kitchen.addTile(sink, 0, 0)
+kitchen.addTile(sink, 1, 2)
 
+kitchen.printMap()
 
