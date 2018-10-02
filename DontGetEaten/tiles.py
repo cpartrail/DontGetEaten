@@ -19,7 +19,7 @@ class Tile:
     def setLocation(self, location):
         self.location = location
 
-    def gimmeLocation(self):
+    def getLocation(self):
         return self.location
 
 
@@ -34,6 +34,7 @@ class Room:
                 self.map[i].append(emptyTile)
 
     def addTile(self, tile, x, y):
+        tile.setLocation([x, y])
         self.map[x][y] = tile
 
     def getMap(self):
@@ -63,12 +64,15 @@ Testy Testy
 
 kitchen = Room(3,4)
 kitchen.printMap()
-print("\n\n")
+print("\nAdding sink and fridge")
 sink = Tile()
-sink.setName("Kitchen Sink")
-
+fridge = Tile()
+sink.setName("Sink")
+fridge.setName("fridge")
 kitchen.addTile(sink, 0, 0)
-kitchen.addTile(sink, 1, 2)
+kitchen.addTile(fridge, 2, 3)
 
 kitchen.printMap()
+print("The sink is located at: ", sink.getLocation())
+print("The fridge is located at: ", fridge.getLocation())
 
