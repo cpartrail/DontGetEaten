@@ -1,5 +1,6 @@
 from player import Player
-from tile import Tile
+from maps import Tile
+from maps import Room
 
 def playerCommands(playerInput):
     '''
@@ -15,14 +16,22 @@ def runIntro():
     print("\n\nYou're in a scary cell ", player1.name, ". Have a nap until it goes away.\n", sep='')
     return player1
 
+def movePlayer(player, the_map, direction):
+    startPosition = player.getLocation()
+    
+
 
 def main():
+    cell = Room(4,4)
     topLeft = Tile()
     topCenter = Tile()
     topRight = Tile()
-    center
-
-
+    centerLeft = Tile()
+    centerCenter = Tile()
+    centerRight = Tile()
+    bottomLeft = Tile()
+    bottomCenter = Tile()
+    bottomRight = Tile()
 
 
     

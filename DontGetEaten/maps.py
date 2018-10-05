@@ -1,6 +1,6 @@
 class Tile:
     def __init__(self):
-        self.name = 'empty tile'
+        self.name = 'Wall'
         self.location = [0,0]
         self.description = ''
 
@@ -37,6 +37,9 @@ class Room:
         tile.setLocation([x, y])
         self.map[x][y] = tile
 
+    def getTile(self, x, y):
+        return self.map[x][y]
+
     def getMap(self):
         return self.map
 
@@ -51,6 +54,12 @@ class Room:
             y = self.length - 1
             x -= 1
 
+    def checkBoundary(self, x, y):
+        if self.map[x][y].getName() == "Wall":
+            print("I've hit a wall")
+        else:
+            print("I can move!")
+
 
 
 
@@ -61,7 +70,7 @@ class Room:
 Testy Testy
 ============
 '''
-
+'''
 kitchen = Room(3,4)
 kitchen.printMap()
 print("\nAdding sink and fridge")
@@ -73,6 +82,7 @@ kitchen.addTile(sink, 0, 0)
 kitchen.addTile(fridge, 2, 3)
 
 kitchen.printMap()
-print("The sink is located at: ", sink.getLocation())
-print("The fridge is located at: ", fridge.getLocation())
-
+print("\n\n")
+kitchen.checkBoundary(2,3)
+kitchen.checkBoundary(0,1)
+'''
