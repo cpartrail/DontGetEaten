@@ -3,6 +3,10 @@ class Tile:
         self.name = 'Wall'
         self.location = [0,0]
         self.description = ''
+        self.north = False
+        self.east = False
+        self.south = False
+        self.west = False
 
     def getName(self):
         return self.name
@@ -22,6 +26,34 @@ class Tile:
     def getLocation(self):
         return self.location
 
+    def makePath(self, direction):
+        if direction == "n": self.north = True
+        if direction == "e": self.east = True
+        if direction == "s": self.south = True
+        if direction == "w": self.west = True
+        if direction == "all":
+            self.north = True
+            self.east = True
+            self.south = True
+            self.west = True
+
+    def clearPath(self, direction):
+        if direction == "n": self.north = False
+        if direction == "e": self.east = False
+        if direction == "s": self.south = False
+        if direction == "w": self.west = False
+        if direction == "all":
+            self.north = False
+            self.east = False
+            self.south = False
+            self.west = False
+
+    def checkPath(self, direction):
+        if direction == "n": return self.north
+        if direction == "e": return self.east
+        if direction == "s": return self.south
+        if direction == "w": return self.west
+
 
 class Room:
     def __init__(self, x, y):
@@ -39,6 +71,9 @@ class Room:
 
     def getTile(self, x, y):
         return self.map[x][y]
+
+    def nameTile(self, name, x, y):
+        self.map[x][y].setName(name)
 
     def getMap(self):
         return self.map
@@ -69,8 +104,8 @@ class Room:
 ============
 Testy Testy
 ============
-'''
-'''
+
+
 kitchen = Room(3,4)
 kitchen.printMap()
 print("\nAdding sink and fridge")
@@ -80,9 +115,12 @@ sink.setName("Sink")
 fridge.setName("fridge")
 kitchen.addTile(sink, 0, 0)
 kitchen.addTile(fridge, 2, 3)
+kitchen.nameTile("Chocolate", 2, 3)
 
 kitchen.printMap()
 print("\n\n")
+
 kitchen.checkBoundary(2,3)
 kitchen.checkBoundary(0,1)
 '''
+

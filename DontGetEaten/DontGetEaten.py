@@ -15,9 +15,6 @@ def runIntro():
     player1.namePlayer(player_name)    
     print("\n\nYou're in a scary cell ", player1.name, ". Have a nap until it goes away.\n", sep='')
     return player1
-
-def movePlayer(player, the_map, direction):
-    startPosition = player.getLocation()
     
 
 
