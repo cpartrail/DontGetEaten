@@ -48,9 +48,12 @@ class Player:
             self.location[1] -= 1
             return True
         if direction == "w" and start_tile.checkPath("w"):
-            self.location[1] -= 1
+            self.location[0] -= 1
             return True
         return False
+
+    def printScene(self):
+        print(self.map.getTile(self.location[0], self.location[1]).getDescription())
         
 
 
@@ -73,7 +76,7 @@ print("Player 1 is alive?", Player1.alive, "\n")
 Player2 = Player()
 print("Player 2 name is", Player2.name)
 print("Player 2 is alive?", Player2.alive)
-'''
+
 kitchen = Room(3,4)
 sink = Tile()
 fridge = Tile()
@@ -94,3 +97,4 @@ player1.movePlayer("n")
 print(player1.getLocation())
 player1.movePlayer("e")
 print(player1.getLocation())
+'''

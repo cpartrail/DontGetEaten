@@ -1,6 +1,6 @@
 class Tile:
     def __init__(self):
-        self.name = 'Wall'
+        self.name = 'Empty'
         self.location = [0,0]
         self.description = ''
         self.north = False
@@ -14,10 +14,10 @@ class Tile:
     def setName(self, name):
         self.name = name
 
-    def updateDescription(self, description):
+    def setDescription(self, description):
         self.description = description
 
-    def gimmeDescription(self):
+    def getDescription(self):
         return self.description
 
     def setLocation(self, location):
@@ -89,11 +89,7 @@ class Room:
             y = self.length - 1
             x -= 1
 
-    def checkBoundary(self, x, y):
-        if self.map[x][y].getName() == "Wall":
-            print("I've hit a wall")
-        else:
-            print("I can move!")
+
 
 
 
