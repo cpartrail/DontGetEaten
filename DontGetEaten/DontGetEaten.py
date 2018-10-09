@@ -16,7 +16,7 @@ def runIntro():
     print("\n\nYou're in a scary cell ", player1.name, ". Have a nap until it goes away.\n", sep='')
     return player1
 
-def loadCell():
+def loadStartingRoom():
     cell = Room(3,3)
 
     topLeft = Tile()
@@ -36,7 +36,7 @@ def loadCell():
     
     topRight = Tile()
     topRight.setName("Top Right Corner")
-    topRight.setDescription("It looks empty, but it's too dark to know for sure.")
+    topRight.setDescription("The corner looks empty, but it's too dark to know for sure.")
     topRight.makePath("w")
     topRight.makePath("s")
     cell.addTile(topRight, 2, 2)
@@ -91,24 +91,28 @@ def loadCell():
 def main():
     
     player1 = runIntro()
-    cell = loadCell()
-    player1.putPlayer(cell, 1, 1)
-
+    startRoom = loadStartingRoom()
+    player1.putPlayer(startRoom, 1, 1)
+    player_moved = False
+    
     player_continue = True
     while player_continue:
-        userInput = input("Press 0 to nap. ")
-        if userInput == '0':
+        userInput = input("Press q to nap. ")
+        if userInput == 'q':
             player_continue = False
         if userInput == 'w':
-            player1.movePlayer("n")
+            player_moved = player1.movePlayer("n")
         if userInput == 'a':
-            player1.movePlayer("w")
+            player_moved = player1.movePlayer("w")
         if userInput == 's':
-            player1.movePlayer("s")
+            player_moved = player1.movePlayer("s")
         if userInput == 'd':
-            player1.movePlayer("e")
-        player1.printScene()
-            
+            player_moved = player1.movePlayer("e")
+        if player_moved == True: player1.printScene()
+        player_moved = False
+
+        if userInput == 'look': player1.printScene()
+        if userInput.split(' ', 1)[0] == 'take': print("TakeIt!")
         
 
 if __name__ == "__main__": main ()
