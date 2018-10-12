@@ -1,9 +1,12 @@
+from items import Item
+from items import Inventory
+
 class Tile:
     def __init__(self):
         self.name = 'Empty'
         self.location = [0,0]
         self.description = ''
-        self.inventory = []
+        self.inventory = Inventory()
         self.north = False
         self.east = False
         self.south = False
@@ -55,6 +58,15 @@ class Tile:
         if direction == "s": return self.south
         if direction == "w": return self.west
 
+    def putItem(self, item):
+        self.inventory.addItem(item)
+
+    def takeItem(self, item):
+        self.inventory.removeItem()
+
+    def lookForThings(self):
+        self.inventory.showItems()
+
 
 class Room:
     def __init__(self, x, y):
@@ -90,36 +102,4 @@ class Room:
             y = self.length - 1
             x -= 1
 
-        
-
-
-
-
-
-
-
-
-'''
-============
-Testy Testy
-============
-
-
-kitchen = Room(3,4)
-kitchen.printMap()
-print("\nAdding sink and fridge")
-sink = Tile()
-fridge = Tile()
-sink.setName("Sink")
-fridge.setName("fridge")
-kitchen.addTile(sink, 0, 0)
-kitchen.addTile(fridge, 2, 3)
-kitchen.nameTile("Chocolate", 2, 3)
-
-kitchen.printMap()
-print("\n\n")
-
-kitchen.checkBoundary(2,3)
-kitchen.checkBoundary(0,1)
-'''
 

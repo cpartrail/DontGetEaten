@@ -1,5 +1,7 @@
 from maps import Tile
 from maps import Room
+from items import Item
+from items import Inventory
 
 class Player:
 
@@ -46,6 +48,9 @@ class Player:
     def printScene(self):
         print(self.map.getTile(self.location[0], self.location[1]).getDescription())
 
+    def lookForThings(self):
+        print(self.map.getTile(self.location[0], self.location[1]).lookForThings())
+
     def addItem(self, item):
         self.inventory.addItem(item)
 
@@ -55,72 +60,4 @@ class Player:
     def showItems(self):
         self.inventory.showItems()
 
-    
-
-class Item:
-    def __init__(self, name):
-        self.name = name
-        self.description = ""
-
-    def setName(self, name):
-        self.name = name
-
-    def getName(self):
-        return self.name
-
-    def setDescription(self, description):
-        self.description = description
-
-    def getDescription(self):
-        return self.description
-
-
-class Inventory:
-    def __init__(self):
-        self.contents = []
-
-    def addItem(self, item):
-        self.contents.append(item)
-
-    def removeItem(self, item):
-        try:
-            self.contents.remove(item)
-        except ValueError:
-            return False
-        return True
-        
-    def showItems(self):
-        for items in self.contents: print(items.getName())
-    
-    
-
-'''
-=================
-    TESTING
-=================
-'''
-
-
-Player1 = Player()
-Player1.namePlayer('Corey')
-
-chocolate = Item("Chocolate Bar")
-chocolate.setDescription("A great big bar of chocolate")
-pizza = Item("Pizza")
-pizza.setDescription("A half eaten slice of pizza.")
-sandwich = Item("Sandwich")
-sandwich.setDescription("A peanut butter and ketchup sandwich. Gross.")
-
-
-Player1.addItem(chocolate)
-Player1.addItem(pizza)
-Player1.addItem(sandwich)
-Player1.showItems()
-
-t = Player1.removeItem(pizza)
-
-print(t, "\n\n")
-Player1.showItems()
-f = Player1.removeItem(pizza)
-print("\n", f)
 

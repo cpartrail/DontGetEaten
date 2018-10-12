@@ -1,4 +1,6 @@
 from player import Player
+from items import Inventory
+from items import Item
 from maps import Tile
 from maps import Room
 
@@ -38,7 +40,7 @@ def loadStartingRoom():
 
     centerLeft = Tile()
     centerLeft.setName("Center Left Wall")
-    centerLeft.setDescription("The wall is bare. A half eaten sandwich sits on the floor.")
+    centerLeft.setDescription("The wall is bare.")
     centerLeft.makePath("s")
     centerLeft.makePath("n")
     centerLeft.makePath("e")
@@ -80,6 +82,17 @@ def loadStartingRoom():
     bottomRight.makePath("w")
     cell.addTile(bottomRight, 2, 0)
 
+    paper = Item("paper")
+    paper.setDescription("a old piece of yellowed paper. There's some faded writing on it.")
+    paper.setPrompt("read")
+
+    sandwich = Item("sandwich")
+    sandwich.setDescription("a half eaten sandwich. It looks like peanut butter and pickle.")
+    sandwich.setPrompt("eat")
+
+    centerLeft.putItem(sandwich)
+    topRight.putItem(paper)
+
     return cell
 
 
@@ -88,6 +101,8 @@ def main():
     player1 = runIntro()
     startRoom = loadStartingRoom()
     player1.putPlayer(startRoom, 1, 1)
+
+    
     player_moved = False
     
     player_continue = True
@@ -106,7 +121,9 @@ def main():
         if player_moved == True: player1.printScene()
         player_moved = False
 
-        if userInput == 'look': player1.printScene()
+        if userInput == 'look':
+            player1.lookForThings()
+            
         if userInput.split(' ', 1)[0] == 'take': print("TakeIt!")
         
 
