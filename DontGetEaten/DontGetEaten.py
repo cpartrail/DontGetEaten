@@ -2,11 +2,6 @@ from player import Player
 from maps import Tile
 from maps import Room
 
-def playerCommands(playerInput):
-    '''
-    For use in main while loop. Take in player input figure out if it is an action,
-    movement, or quit command. Output nothing.
-    '''
 
 def runIntro():
     player1 = Player()

@@ -3,6 +3,7 @@ class Tile:
         self.name = 'Empty'
         self.location = [0,0]
         self.description = ''
+        self.inventory = []
         self.north = False
         self.east = False
         self.south = False

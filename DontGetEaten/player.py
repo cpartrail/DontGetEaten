@@ -6,7 +6,7 @@ class Player:
     def __init__(self):
         self.name = 'nobody'
         self.alive = True
-        self.inventory = []
+        self.inventory = Inventory()
         self.map = None
         self.location = [0,0]
 
@@ -18,15 +18,6 @@ class Player:
 
     def namePlayer(self, name):
         self.name = name
-
-    def addItem(self, item):
-        self.inventory.append(item)
-
-    def removeItem(self, item):
-        self.inventory.remove(item)
-
-    def showItems(self):
-        for items in self.inventory: print(items)
 
     def putPlayer(self, room, x, y):
         self.map = room
@@ -54,9 +45,52 @@ class Player:
 
     def printScene(self):
         print(self.map.getTile(self.location[0], self.location[1]).getDescription())
+
+    def addItem(self, item):
+        self.inventory.addItem(item)
+
+    def removeItem(self, item):
+        return self.inventory.removeItem(item)
+
+    def showItems(self):
+        self.inventory.showItems()
+
+    
+
+class Item:
+    def __init__(self, name):
+        self.name = name
+        self.description = ""
+
+    def setName(self, name):
+        self.name = name
+
+    def getName(self):
+        return self.name
+
+    def setDescription(self, description):
+        self.description = description
+
+    def getDescription(self):
+        return self.description
+
+
+class Inventory:
+    def __init__(self):
+        self.contents = []
+
+    def addItem(self, item):
+        self.contents.append(item)
+
+    def removeItem(self, item):
+        try:
+            self.contents.remove(item)
+        except ValueError:
+            return False
+        return True
         
-
-
+    def showItems(self):
+        for items in self.contents: print(items.getName())
     
     
 
@@ -66,35 +100,27 @@ class Player:
 =================
 '''
 
-'''
+
 Player1 = Player()
 Player1.namePlayer('Corey')
-Player1.killPlayer()
-print("Player 1 name is", Player1.name)
-print("Player 1 is alive?", Player1.alive, "\n")
-      
-Player2 = Player()
-print("Player 2 name is", Player2.name)
-print("Player 2 is alive?", Player2.alive)
 
-kitchen = Room(3,4)
-sink = Tile()
-fridge = Tile()
-counter = Tile()
-sink.setName("Sink")
-fridge.setName("fridge")
-counter.setName("counter")
-kitchen.addTile(sink, 0, 0)
-kitchen.addTile(fridge, 0, 1)
-kitchen.addTile(counter, 0, 2)
-kitchen.getTile(0, 1).makePath("n")
-kitchen.getTile(0, 1).makePath("s")
+chocolate = Item("Chocolate Bar")
+chocolate.setDescription("A great big bar of chocolate")
+pizza = Item("Pizza")
+pizza.setDescription("A half eaten slice of pizza.")
+sandwich = Item("Sandwich")
+sandwich.setDescription("A peanut butter and ketchup sandwich. Gross.")
 
-player1 = Player()
-player1.putPlayer(kitchen, 0, 1)
-print(player1.getLocation())
-player1.movePlayer("n")
-print(player1.getLocation())
-player1.movePlayer("e")
-print(player1.getLocation())
-'''
+
+Player1.addItem(chocolate)
+Player1.addItem(pizza)
+Player1.addItem(sandwich)
+Player1.showItems()
+
+t = Player1.removeItem(pizza)
+
+print(t, "\n\n")
+Player1.showItems()
+f = Player1.removeItem(pizza)
+print("\n", f)
+
