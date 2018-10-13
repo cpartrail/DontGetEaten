@@ -4,9 +4,11 @@ from first_cell import loadStartingRoom
 def runIntro():
     player1 = Player()
     print("===================================\n         Don't Get Eaten\n===================================\n\n")
-    player_name = input('Hello?\n\nWho\'s there? ')
+    player_name = input('Hello? Who\'s there? ')
     player1.namePlayer(player_name)    
-    print("\n\nYou're in a scary cell ", player1.name, ". Have a nap until it goes away.\n", sep='')
+    print("\nYou're in a scary cell ", player1.name, ". Have a nap until it goes away.\n", sep='')
+    input("\n")
+    print("Fine then. Have a look around if you must. Press 'q' if you change your mind.\n")
     return player1
 
 def main():
@@ -19,7 +21,7 @@ def main():
     
     player_continue = True
     while player_continue:
-        userInput = input("Press q to nap. ")
+        userInput = input("...")
         if userInput == 'q':
             player_continue = False
         if userInput == 'w':
