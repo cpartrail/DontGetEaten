@@ -41,7 +41,17 @@ class Inventory:
         except ValueError:
             return False
         return True
+
+    def takeItem(self, item_name):
+        for items in self.contents:
+            if items.getName() == item_name:
+                item = items
+                self.contents.remove(item)
+                return item
+        return None
         
     def showItems(self):
+        if not self.contents:
+            print("There is nothing there.")
         for items in self.contents:
-            if not items == None: print(items.getName())
+            if not items == None: print("You see", items.getDescription())

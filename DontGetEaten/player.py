@@ -49,7 +49,17 @@ class Player:
         print(self.map.getTile(self.location[0], self.location[1]).getDescription())
 
     def lookForThings(self):
-        print(self.map.getTile(self.location[0], self.location[1]).lookForThings())
+        self.map.getTile(self.location[0], self.location[1]).lookForThings()
+
+    def pickUp(self, item_name):
+        item = self.map.getTile(self.location[0], self.location[1]).takeItem(item_name)
+        if item:
+            self.inventory.addItem(item)
+
+    def putDown(self, item_name):
+        item = self.inventory.takeItem(item_name)
+        if item: self.map.getTile(self.location[0], self.location[1]).putItem(item)
+
 
     def addItem(self, item):
         self.inventory.addItem(item)
