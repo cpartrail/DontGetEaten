@@ -45,7 +45,7 @@ def loadStartingRoom():
     
     centerRight = Tile()
     centerRight.setName("Center Right Door")
-    centerRight.setDescription("There is a door - locked and far to heavy to break.")
+    centerRight.setDescription("There is a door - locked and far too heavy to break.")
     centerRight.makePath("s")
     centerRight.makePath("n")
     centerRight.makePath("w")

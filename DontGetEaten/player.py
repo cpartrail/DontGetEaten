@@ -64,10 +64,17 @@ class Player:
     def addItem(self, item):
         self.inventory.addItem(item)
 
-    def removeItem(self, item):
-        return self.inventory.removeItem(item)
-
     def showItems(self):
         self.inventory.showItems()
 
+    def removeItem(self, item_name):
+        for items in self.inventory:
+            if items.getName() == item_name:
+                self.inventory.removeItem(items)
+                return True
+        return False
 
+    '''
+    def removeItem(self, item):
+        return self.inventory.removeItem(item)
+    '''

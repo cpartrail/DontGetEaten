@@ -52,6 +52,18 @@ def main():
             except IndexError:
                 print("Drop what?")
 
+        if userInput.split(' ', 1)[0] == 'eat':
+            item_name == "nothing yet"
+            try:
+                item_name = userInput.split(' ', 1)[1]
+            except IndexError:
+                print("Eat what?")
+            if item_name == "sandwich":
+                player1.removeItem("sandwich")
+                print("Yum")
+                
+                
+
         if userInput == 'i':
             player1.showItems()
             

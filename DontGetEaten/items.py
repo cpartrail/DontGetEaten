@@ -42,6 +42,12 @@ class Inventory:
             return False
         return True
 
+    def removeItemByName(self, item_name):
+        for item in self.contents:
+            if item.getName() == item_name:
+                self.contents.remove(item)
+                
+
     def takeItem(self, item_name):
         for items in self.contents:
             if items.getName() == item_name:
