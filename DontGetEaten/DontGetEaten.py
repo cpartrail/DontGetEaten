@@ -53,19 +53,23 @@ def main():
                 print("Drop what?")
 
         if userInput.split(' ', 1)[0] == 'eat':
-            item_name == "nothing yet"
             try:
                 item_name = userInput.split(' ', 1)[1]
+                if player1.inventory.checkInventory(item_name):
+                    if item_name == "sandwich":
+                        player1.consume("sandwich")
+                        print("Yum")
+                    else:
+                        print("You can't eat that.\n Gross.")
+                else:
+                    print("You don't any. There might be some food around here if you look.")
             except IndexError:
                 print("Eat what?")
-            if item_name == "sandwich":
-                player1.removeItem("sandwich")
-                print("Yum")
-                
-                
+
+                          
 
         if userInput == 'i':
-            player1.showItems()
+            player1.inventory.showPlayerItems()
             
 
 if __name__ == "__main__": main ()

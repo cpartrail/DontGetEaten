@@ -57,22 +57,14 @@ class Player:
             self.inventory.addItem(item)
 
     def putDown(self, item_name):
-        item = self.inventory.takeItem(item_name)
+        item = self.inventory.removeItem(item_name)
         if item: self.map.getTile(self.location[0], self.location[1]).putItem(item)
 
+    def consume(self, item_name):
+        return self.inventory.removeItem(item_name)
 
-    def addItem(self, item):
-        self.inventory.addItem(item)
 
-    def showItems(self):
-        self.inventory.showItems()
 
-    def removeItem(self, item_name):
-        for items in self.inventory:
-            if items.getName() == item_name:
-                self.inventory.removeItem(items)
-                return True
-        return False
 
     '''
     def removeItem(self, item):

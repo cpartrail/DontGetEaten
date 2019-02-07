@@ -62,7 +62,7 @@ class Tile:
         self.inventory.addItem(item)
 
     def takeItem(self, item_name):
-        return self.inventory.takeItem(item_name)
+        return self.inventory.removeItem(item_name)
 
     def lookForThings(self):
         self.inventory.showItems()
