@@ -63,7 +63,9 @@ class Player:
     def consume(self, item_name):
         return self.inventory.removeItem(item_name)
 
-
+    def transmute(self, item_name, new_item):
+        self.inventory.removeItem(item_name)
+        self.inventory.addItem(new_item)
 
 
     '''

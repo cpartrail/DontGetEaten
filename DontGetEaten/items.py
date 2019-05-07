@@ -26,7 +26,10 @@ class Item:
 
     def checkPrompt(self, prompt):
         if prompt == specialPrompt: return self.specialText
-        else: return False 
+        else: return False
+
+    def transmute(self, newItem):
+        self = newItem
         
 
 class Inventory:

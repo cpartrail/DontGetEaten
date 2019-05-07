@@ -8,7 +8,7 @@ def runIntro():
     player1.namePlayer(player_name)    
     print("\nYou're in a scary cell ", player1.name, ". Have a nap until it goes away.\n", sep='')
     input("\n")
-    print("Fine then. Have a look around if you must. Press 'q' if you change your mind.\n")
+    print("Fine then. Have a look around if you must. \nUse W A S D to move around. Press 'q' if you change your mind.\n")
     return player1
 
 def main():
@@ -26,13 +26,18 @@ def main():
             player_continue = False
         if userInput == 'w':
             player_moved = player1.movePlayer("n")
+            if player_moved == False: print("I can't move further north")
         if userInput == 'a':
             player_moved = player1.movePlayer("w")
+            if player_moved == False: print("I can't move further west")
         if userInput == 's':
             player_moved = player1.movePlayer("s")
+            if player_moved == False: print("I can't move further south")
         if userInput == 'd':
             player_moved = player1.movePlayer("e")
+            if player_moved == False: print("I can't move further east")
         if player_moved == True: player1.printScene()
+        
         player_moved = False
 
         if userInput == 'look':
@@ -57,14 +62,21 @@ def main():
                 item_name = userInput.split(' ', 1)[1]
                 if player1.inventory.checkInventory(item_name):
                     if item_name == "sandwich":
-                        player1.consume("sandwich")
-                        print("Yum")
+                        key = startRoom.takeItem("key")
+                        player1.transmute("sandwich", key)
+                        print("Ouch! My tooth!\n\nYou seem to have munched down on something hard. You pull it out of your mouth.")
                     else:
                         print("You can't eat that.\n Gross.")
                 else:
                     print("You don't any. There might be some food around here if you look.")
             except IndexError:
                 print("Eat what?")
+
+        if userInput.split(' ', 1)[0] == 'unlock':
+            if player1.inventory.checkInventory("key"):
+                print("You have successfully unlocked the cell door! Now flee!\n\n\nPress 'q' to flee.")
+            else:
+                print("You need a key to unlock things sillyhead.")
 
                           
 

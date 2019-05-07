@@ -82,5 +82,10 @@ def loadStartingRoom():
     sandwich.setDescription("a half eaten sandwich. It looks like peanut butter and pickle.")
     sandwich.setPrompt("eat")
     centerLeft.putItem(sandwich)
+
+    key = Item("key")
+    key.setDescription("a shiny key.")
+    key.setPrompt("unlock")
+    cell.putItem(key)
     
     return cell

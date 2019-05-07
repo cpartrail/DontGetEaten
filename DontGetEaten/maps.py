@@ -77,6 +77,7 @@ class Room:
         for i in range(x):
             for j in range(1, y):
                 self.map[i].append(emptyTile)
+        self.inventory = Inventory()
 
     def addTile(self, tile, x, y):
         tile.setLocation([x, y])
@@ -102,4 +103,8 @@ class Room:
             y = self.length - 1
             x -= 1
 
+    def putItem(self, item):
+        self.inventory.addItem(item)
 
+    def takeItem(self, item_name):
+        return self.inventory.removeItem(item_name)
